@@ -36,17 +36,29 @@ function generateCanvaSize(){
 function changeColor(col){
     let colorChange = false;
     let erase = false;
+
+    clearBtn.addEventListener('click', ()=>{
+        let boxes= document.querySelectorAll('.box');
+        boxes.forEach(box  =>{
+            box.style.backgroundColor = '';
+        });
+    });
+
+    eraserBtn.addEventListener('click',() =>{
+       return erase = erase ? false : true;
+    });
+
     randomColorBtn.addEventListener('click', () =>{
-        colorChange = true;
+        return colorChange = colorChange ? false : true;
     });
     col.addEventListener('mouseover', () =>{
-        col.style.backgroundColor = (colorChange)?randomRGBcolors() : 'gray';
+        if(erase){
+            col.style.backgroundColor = '';
+        }else{
+            col.style.backgroundColor = (colorChange)?randomRGBcolors() : 'gray';
+        }
+       
     });
-}
-
-//random color generator
-function randomColor(){
-
 }
 
 
