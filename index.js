@@ -5,7 +5,7 @@ const eraserBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
 
 canvaSizeBtn.addEventListener('click', generateCanvaSize);
-//randomColorBtn.addEventListener('click',randomColor);
+
 
 
 
@@ -34,8 +34,13 @@ function generateCanvaSize(){
 
 //change the color when hover
 function changeColor(col){
+    let colorChange = false;
+    let erase = false;
+    randomColorBtn.addEventListener('click', () =>{
+        colorChange = true;
+    });
     col.addEventListener('mouseover', () =>{
-        col.style.backgroundColor = randomRGBcolors();
+        col.style.backgroundColor = (colorChange)?randomRGBcolors() : 'gray';
     });
 }
 
